@@ -5,11 +5,11 @@ import {
     Button,
     useMediaQuery
 } from '@chakra-ui/react';
-import {PlayCircleFill} from '@styled-icons/bootstrap/PlayCircleFill'
+import { PlayCircleFill } from '@styled-icons/bootstrap/PlayCircleFill'
 
 
 function HomeSection() {
-    const [ isMobile ] = useMediaQuery('(max-width: 720px)', { ssr: false })
+    const [ isMobile ] = useMediaQuery('(max-width: 730px)')
     return (
         <Box 
         pos={'relative'}
