@@ -2,12 +2,14 @@ import {
     Flex,
     Box,
     Text,
-    Button
+    Button,
+    useMediaQuery
 } from '@chakra-ui/react';
 import {PlayCircleFill} from '@styled-icons/bootstrap/PlayCircleFill'
 
 
 function HomeSection() {
+    const [ isMobile ] = useMediaQuery('(max-width: 720px)', { ssr: false })
     return (
         <Box 
         pos={'relative'}
@@ -17,9 +19,10 @@ function HomeSection() {
         backgroundSize={'cover'}
         backgroundPosition={'center'}
         backgroundRepeat={'no-repeat'}
+        className={'home-desktop'}
         color={'#fff'}>
-            <Flex w={'650px'} position={'relative'} top={'130px'} left={'110px'} direction={'column'} gap={'40px'}>
-                <Text fontSize={'4rem'} fontWeight={'bold'} lineHeight={'120%'}>Inclusive care for children with special needs</Text>
+            <Flex w={isMobile === true ? '90vw' : '50vw'} maxW={isMobile === true ? '100vw' : '650px'} position={'relative'} top={'130px'} left={isMobile === true ? '5vw' : '110px'} direction={'column'} gap={'40px'}>
+                <Text fontSize={isMobile === true ? '3rem' : '4rem'} fontWeight={'bold'} lineHeight={'120%'}>Inclusive care for children with special needs</Text>
                 <Flex gap={'24px'}>
                     <Button variant={'unstyled'}
                     backgroundColor={'#fff'}
