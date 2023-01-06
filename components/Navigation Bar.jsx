@@ -12,7 +12,7 @@ import { MenuAltLeft } from '@styled-icons/boxicons-regular/MenuAltLeft';
 import { Close } from '@styled-icons/ionicons-solid/Close'
 
 function NavBar() {
-    const [ isMobile ] = useMediaQuery('(max-width: 830px)')
+    const [ isMobile ] = useMediaQuery('(max-width: 830px)', {ssr: true})
     if(isMobile === false)
         return <NavBarDesktop />
     else
@@ -26,6 +26,7 @@ function NavBarDesktop() {
         w={'100%'}
         h={'67px'}
         position='fixed'
+        top={'0px'}
         alignItems={'center'}
         justifyContent={'space-around'}
         backgroundColor={'#fff'}
@@ -77,6 +78,7 @@ function NavBarMobile() {
             w={'100%'}
             h={'67px'}
             position='fixed'
+            top={'0px'}
             alignItems={'center'}
             justifyContent={'space-between'}
             backgroundColor={'#fff'}
@@ -105,12 +107,12 @@ function NavBarMobile() {
             </Flex>
             <Flex 
             w={'100vw'}
-            maxW={'350px'}
+            maxW={'360px'}
             h={'calc(var(--height) - 67px)'}
             top={'67px'}
-            position={'absolute'}
+            position={'fixed'}
             backgroundColor={'#fff'}
-            left={isMenuOpen === true ? '0px' : '-350px'}
+            left={isMenuOpen === true ? '0px' : '-360px'}
             className={'nav-bar-mobile-menu'}
             zIndex={100}
             pt={'20px'}
@@ -119,7 +121,7 @@ function NavBarMobile() {
             direction={'column'}
             transition={'all 500ms'}>
                 <Text fontWeight={'bold'} fontSize={'1.05rem'}>Know more about us</Text>
-                <Flex gap={'10px'} direction={'column'} pl={'8px'} mb={'10px'} mt={'2px'}>
+                <Flex gap={'10px'} direction={'column'} pl={'14px'} mb={'10px'} mt={'2px'}>
                     <Link as={NextLink} href={'/'} 
                     color='#525560' _hover={{color: '#0B0706'}} fontWeight={'medium'} fontSize={'1rem'}>
                         Home
@@ -142,7 +144,7 @@ function NavBarMobile() {
                     </Link>
                 </Flex>
                 <Text fontWeight={'bold'} fontSize={'1.05rem'}>Connect</Text>
-                <Flex gap={'10px'} direction={'column'} pl={'8px'} mb={'10px'} mt={'2px'}>
+                <Flex gap={'10px'} direction={'column'} pl={'14px'} mb={'10px'} mt={'2px'}>
                     <Link as={NextLink} href={'/'} 
                     color='#525560' _hover={{color: '#0B0706'}} fontWeight={'medium'} fontSize={'1rem'}>
                         Facebook
@@ -165,7 +167,7 @@ function NavBarMobile() {
                     </Link>
                 </Flex>
                 <Text fontWeight={'bold'} fontSize={'1.05rem'}>More</Text>
-                <Flex  gap={'10px'} direction={'column'} pl={'8px'} mt={'2px'}>
+                <Flex  gap={'10px'} direction={'column'} pl={'14px'} mt={'2px'} mb={'10px'} >
                     <Link as={NextLink} href={'/'} 
                     color='#525560' _hover={{color: '#0B0706'}} fontWeight={'medium'} fontSize={'1rem'}>
                         Projects

@@ -9,11 +9,12 @@ import { PlayCircleFill } from '@styled-icons/bootstrap/PlayCircleFill'
 
 
 function HomeSection() {
-    const [ isMobile ] = useMediaQuery('(max-width: 730px)')
+    const [ isMobile ] = useMediaQuery('(max-width: 730px)', {ssr: true})
+    const [ max900 ] = useMediaQuery('(max-width: 900px)', {ssr: true})
     return (
         <Box 
         pos={'relative'}
-        top={'67px'}
+        marginTop={'67px'}
         h={'calc(100vh - 67px)'}
         backgroundImage={"linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/Home BG.jpg')"}
         backgroundSize={'cover'}
@@ -21,7 +22,7 @@ function HomeSection() {
         backgroundRepeat={'no-repeat'}
         className={'home-desktop'}
         color={'#fff'}>
-            <Flex w={isMobile === true ? '90vw' : '50vw'} maxW={isMobile === true ? '100vw' : '650px'} position={'relative'} top={'130px'} left={isMobile === true ? '5vw' : '110px'} direction={'column'} gap={'40px'}>
+            <Flex w={max900 === true ? '90vw' : '50vw'} maxW={isMobile === true ? '100vw' : '650px'} position={'relative'} top={'130px'} left={max900 === true ? '5vw' : '110px'} direction={'column'} gap={'40px'}>
                 <Text fontSize={isMobile === true ? '3rem' : '4rem'} fontWeight={'bold'} lineHeight={'120%'}>Inclusive care for children with special needs</Text>
                 <Flex gap={'24px'}>
                     <Button variant={'unstyled'}

@@ -1,6 +1,7 @@
-import NavBar from '../components/Navigation Bar'
-import HomeSection from '../components/sections/Home'
-import { useEffect } from 'react'
+import NavBar from '../components/Navigation Bar';
+import HomeSection from '../components/sections/Home';
+import Footer from '../components/Footer'
+import { useEffect } from 'react';
 
 export default function Home() {
 
@@ -16,6 +17,7 @@ export default function Home() {
     <>
       <NavBar />
       <HomeSection />
+      <Footer />
     </>
   )
 }
