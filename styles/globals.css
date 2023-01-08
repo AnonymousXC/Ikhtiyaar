@@ -39,6 +39,6 @@ input:focus:invalid {
 @media screen and (max-width:720px) {
   .Typewriter {
     font-size: 3rem;
-    height: 12rem;
+    height: 13.6rem;
   }
 }
