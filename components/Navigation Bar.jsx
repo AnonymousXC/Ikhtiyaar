@@ -6,13 +6,14 @@ import {
     useMediaQuery,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { useState } from 'react'
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { courgette } from '../fonts/font.js';
 import { MenuAltLeft } from '@styled-icons/boxicons-regular/MenuAltLeft';
-import { Close } from '@styled-icons/ionicons-solid/Close'
+import { Close } from '@styled-icons/ionicons-solid/Close';
 
 function NavBar() {
-    const [ isMobile ] = useMediaQuery('(max-width: 830px)', {ssr: true})
+    const [ isMobile ] = useMediaQuery('(max-width: 830px)', {ssr: false})
     if(isMobile === false)
         return <NavBarDesktop />
     else
@@ -21,6 +22,9 @@ function NavBar() {
 
 
 function NavBarDesktop() {
+
+    const router = useRouter()
+
     return (
         <Flex
         w={'100%'}
@@ -31,7 +35,8 @@ function NavBarDesktop() {
         justifyContent={'space-around'}
         backgroundColor={'#fff'}
         className={'nav-bar-desktop'}
-        zIndex={1000}>
+        zIndex={1000}
+        borderBottom={'solid 1px rgba(0,0,0,0.4)'}>
             <Flex gap={0.5} alignItems={'center'}>
                 <Text className={courgette.className} color='#000' fontSize={'1.6rem'}>i</Text> 
                 <Text color='#000' fontSize={'1.6rem'} fontWeight={'bold'}>ktayaar</Text>
@@ -51,7 +56,7 @@ function NavBarDesktop() {
                 </Link>
                 <Link as={NextLink} href={'/'} 
                 color='#525560' _hover={{color: '#0B0706'}} fontWeight={'medium'} fontSize={'0.9rem'}>
-                    Media
+                    Our team
                 </Link>
                 <Link as={NextLink} href={'/'} 
                 color='#525560' _hover={{color: '#0B0706'}} fontWeight={'medium'} fontSize={'0.9rem'}>
@@ -63,7 +68,10 @@ function NavBarDesktop() {
             h={'35px'}
             backgroundColor='#1D2130'
             rounded={'4px'}
-            color={'#fff'} >Donate</Button>
+            color={'#fff'}
+            onClick={() => {
+                router.push('/donate')
+            }} >Donate</Button>
         </Flex>
     )
 }
@@ -71,7 +79,7 @@ function NavBarDesktop() {
 function NavBarMobile() {
 
     const [ isMenuOpen, setOpenMenu ] = useState(false)
-
+    const router = useRouter()
     return (
         <>
             <Flex
@@ -83,6 +91,7 @@ function NavBarMobile() {
             justifyContent={'space-between'}
             backgroundColor={'#fff'}
             className={'nav-bar-mobile'}
+            borderBottom={'solid 1px rgba(0,0,0,0.4)'}
             zIndex={1000}>
                 <Button variant={'unstyled'} ml={4}
                 onClick={() => {
@@ -101,7 +110,10 @@ function NavBarMobile() {
                 rounded={'4px'}
                 fontWeight={'normal'}
                 backgroundColor={'#1D2130'}
-                color={'#fff'}>
+                color={'#fff'}
+                onClick={() => {
+                    router.push('/donate')
+                }}>
                     Donate
                 </Button>
             </Flex>
@@ -136,7 +148,7 @@ function NavBarMobile() {
                     </Link>
                     <Link as={NextLink} href={'/'} 
                     color='#525560' _hover={{color: '#0B0706'}} fontWeight={'medium'} fontSize={'1rem'}>
-                        Media
+                        Our team
                     </Link>
                     <Link as={NextLink} href={'/'} 
                     color='#525560' _hover={{color: '#0B0706'}} fontWeight={'medium'} fontSize={'1rem'}>

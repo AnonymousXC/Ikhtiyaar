@@ -26,3 +26,19 @@ a {
 input:focus:invalid {
   outline-color: red;
 }
+
+
+/*Typewriter Home*/
+.Typewriter {
+  height: 13.3rem;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 120%;
+}
+
+@media screen and (max-width:720px) {
+  .Typewriter {
+    font-size: 3rem;
+    height: 12rem;
+  }
+}

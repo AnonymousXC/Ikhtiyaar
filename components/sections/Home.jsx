@@ -6,7 +6,8 @@ import {
     useMediaQuery,
     Divider,
 } from '@chakra-ui/react';
-import { PlayCircleFill } from '@styled-icons/bootstrap/PlayCircleFill'
+import { PlayCircleFill } from '@styled-icons/bootstrap/PlayCircleFill';
+import Typewriter from 'typewriter-effect';
 
 
 function HomeSection() {
@@ -25,7 +26,23 @@ function HomeSection() {
         className={'home-desktop'}
         color={'#fff'}>
             <Flex w={max900 === true ? '90vw' : '50vw'} maxW={isMobile === true ? '100vw' : '650px'} position={'relative'} top={'7rem'} left={max900 === true ? '5vw' : '110px'} direction={'column'} gap={'40px'}>
-                <Text fontSize={isMobile === true ? '3rem' : '4rem'} fontWeight={'bold'} lineHeight={'120%'}>Inclusive care for children with special needs</Text>
+                {/* <Text fontSize={isMobile === true ? '3rem' : '4rem'} fontWeight={'bold'} lineHeight={'120%'}>Inclusive care for children with special needs</Text> */}
+                <Typewriter
+                options={{ loop: true, cursor: '_' }}
+                onInit={(typewriter) => {
+                    typewriter
+                    .typeString('Inclusive care for children with special needs.')
+                    .pauseFor(3000)
+                    .deleteAll()
+                    .typeString('The generated Lorem Ipsum is therefore always.')
+                    .pauseFor(3000)
+                    .deleteAll()
+                    .typeString('It uses a dictionary of over 200 Latin words.')
+                    .pauseFor(3000)
+                    .deleteAll()
+                    .start();
+                }}
+                />
                 <Flex gap={'24px'}>
                     <Button variant={'unstyled'}
                     backgroundColor={'#fff'}

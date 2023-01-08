@@ -30,6 +30,7 @@ function FooterDesktop() {
         alignItems={'flex-start'}
         justifyContent={'space-around'}
         pt={'80px'}
+        className={'footer'}
         flexWrap={'wrap'}>
             <Flex gap={0.5} alignItems={'center'}>
                 <Text className={courgette.className} color='#fff' fontSize={'1.8rem'}>i</Text> 
@@ -126,7 +127,8 @@ function FooterMobile() {
         color={'#fff'}
         pt={'80px'}
         flexWrap={'wrap'}
-        px={'5vw'}>
+        px={'5vw'}
+        className={'footer'}>
              <Text fontWeight={'bold'} fontSize={'2.3rem'} maxW={'380px'}>Subscribe to get latest updates</Text>
                 <InputGroup>
                     <Input className={'email-footer'} border={'none'} outline={'1px solid rgba(235, 240, 249, 0.3)'} rounded={'4px'} color={'#EBF0F9'} placeholder={'Your email'} type={'email'} />
